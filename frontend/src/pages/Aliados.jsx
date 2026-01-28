@@ -9,35 +9,27 @@ const Aliados = () => {
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
 
-  const aliadosLogos = [
-    {
-      id: 1,
-      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/okipv9ff_image.png',
-      name: 'Aliados Estratégicos'
-    }
-  ];
-
   const aliados = [
     {
       id: 1,
-      name: 'Hospital General',
+      name: 'Ministerio de Salud Pública',
       category: 'Salud',
       description: 'Apoyo médico y logístico para el traslado de pacientes',
-      logo: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=300&fit=crop',
+      logo: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/v6mb7g6y_1630664618187.jpg',
     },
     {
       id: 2,
-      name: 'Fundación Esperanza',
-      category: 'ONG',
-      description: 'Colaboración en programas de apoyo familiar y psicológico',
-      logo: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop',
+      name: 'Universidad de Especialidades Espíritu Santo',
+      category: 'Educación',
+      description: 'Apoyo académico y voluntariado estudiantil',
+      logo: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/13bnb8sg_logo-gabo-01.jpg',
     },
     {
       id: 3,
-      name: 'Aerolínea Nacional',
-      category: 'Transporte',
-      description: 'Facilitación de vuelos para cumplimiento de sueños',
-      logo: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop',
+      name: 'Banco de Alimentos Diakonia',
+      category: 'Alimentación',
+      description: 'Apoyo nutricional y alimentario para las familias',
+      logo: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/jhjhyhtn_images.png',
     },
     {
       id: 4,
