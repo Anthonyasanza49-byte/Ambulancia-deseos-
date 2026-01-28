@@ -5,6 +5,18 @@ import { Building2, HandHeart, CheckCircle } from 'lucide-react';
 import Autoplay from 'embla-carousel-autoplay';
 
 const Aliados = () => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+
+  const aliadosLogos = [
+    {
+      id: 1,
+      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/okipv9ff_image.png',
+      name: 'Aliados Estratégicos'
+    }
+  ];
+
   const aliados = [
     {
       id: 1,
