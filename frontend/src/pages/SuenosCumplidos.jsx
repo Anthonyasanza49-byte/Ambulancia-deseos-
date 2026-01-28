@@ -168,8 +168,86 @@ const SuenosCumplidos = () => {
         </div>
       </section>
 
-      {/* Sueños Grid */}
+      {/* Carrusel de Sueños Destacados */}
       <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#0F5E63] mb-4">
+              Historias que Nos Inspiran
+            </h2>
+            <p className="text-lg text-[#7A7A7A] max-w-3xl mx-auto">
+              Cada sueño cumplido es una historia única de esperanza, valentía y amor incondicional
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto">
+            <Carousel
+              plugins={[plugin.current]}
+              className="w-full"
+              onMouseEnter={plugin.current.stop}
+              onMouseLeave={plugin.current.reset}
+            >
+              <CarouselContent>
+                {suenosDestacados.map((sueno) => (
+                  <CarouselItem key={sueno.id}>
+                    <div className="p-4">
+                      <Card className="overflow-hidden border-none shadow-2xl">
+                        <div className="grid md:grid-cols-2 gap-0">
+                          {/* Image Side */}
+                          <div className="h-[400px] md:h-auto relative overflow-hidden">
+                            <img
+                              src={sueno.image}
+                              alt={sueno.title}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <Badge className="absolute top-4 left-4 bg-[#1FA8A1] text-white hover:bg-[#1FA8A1] px-4 py-2 text-base">
+                              <Heart className="w-4 h-4 mr-2" fill="currentColor" />
+                              {sueno.child}
+                            </Badge>
+                          </div>
+                          
+                          {/* Content Side */}
+                          <CardContent className="p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-white to-[#F5F7F7]">
+                            <h3 className="text-3xl md:text-4xl font-bold text-[#0F5E63] mb-4">
+                              {sueno.title}
+                            </h3>
+                            <p className="text-[#7A7A7A] text-base md:text-lg mb-6 leading-relaxed">
+                              {sueno.description}
+                            </p>
+                            
+                            <div className="space-y-3 mb-6">
+                              <div className="flex items-center gap-2 text-[#7A7A7A]">
+                                <Calendar className="w-5 h-5 text-[#1FA8A1]" />
+                                <span className="font-medium">{sueno.date}</span>
+                              </div>
+                              <div className="flex items-center gap-2 text-[#7A7A7A]">
+                                <MapPin className="w-5 h-5 text-[#1FA8A1]" />
+                                <span className="font-medium">{sueno.location}</span>
+                              </div>
+                            </div>
+
+                            <div className="bg-[#6FD3C8]/10 rounded-lg p-4 border-l-4 border-[#1FA8A1]">
+                              <p className="text-sm font-semibold text-[#0F5E63]">
+                                💫 Impacto: <span className="font-normal text-[#7A7A7A]">{sueno.impact}</span>
+                              </p>
+                            </div>
+                          </CardContent>
+                        </div>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 md:left-4" />
+              <CarouselNext className="right-2 md:right-4" />
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+      {/* Sueños Grid */}
+      <section className="py-20 bg-[#F5F7F7]">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredSuenos.map((sueno) => (
