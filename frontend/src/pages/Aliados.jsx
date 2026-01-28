@@ -106,6 +106,36 @@ const Aliados = () => {
             </p>
           </div>
 
+          {/* Carousel de Logos de Aliados */}
+          <div className="mb-16 max-w-5xl mx-auto">
+            <Carousel
+              plugins={[plugin.current]}
+              className="w-full"
+              onMouseEnter={plugin.current.stop}
+              onMouseLeave={plugin.current.reset}
+            >
+              <CarouselContent>
+                {aliadosLogos.map((aliado) => (
+                  <CarouselItem key={aliado.id}>
+                    <div className="p-4">
+                      <Card className="border-none shadow-xl">
+                        <CardContent className="p-0">
+                          <img
+                            src={aliado.image}
+                            alt={aliado.name}
+                            className="w-full h-auto object-contain rounded-lg"
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {aliados.map((aliado) => (
               <Card key={aliado.id} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
