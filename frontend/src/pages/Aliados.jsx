@@ -91,41 +91,11 @@ const Aliados = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#0F5E63] mb-4">
-              Empresas e Instituciones Aliadas
+              Nuestros Aliados Estratégicos
             </h2>
             <p className="text-lg text-[#7A7A7A] max-w-3xl mx-auto">
-              Más de 50 organizaciones confían en nuestra misión y nos apoyan activamente
+              Organizaciones que confían en nuestra misión y nos apoyan activamente
             </p>
-          </div>
-
-          {/* Carousel de Logos de Aliados */}
-          <div className="mb-16 max-w-5xl mx-auto">
-            <Carousel
-              plugins={[plugin.current]}
-              className="w-full"
-              onMouseEnter={plugin.current.stop}
-              onMouseLeave={plugin.current.reset}
-            >
-              <CarouselContent>
-                {aliadosLogos.map((aliado) => (
-                  <CarouselItem key={aliado.id}>
-                    <div className="p-4">
-                      <Card className="border-none shadow-xl">
-                        <CardContent className="p-0">
-                          <img
-                            src={aliado.image}
-                            alt={aliado.name}
-                            className="w-full h-auto object-contain rounded-lg"
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
