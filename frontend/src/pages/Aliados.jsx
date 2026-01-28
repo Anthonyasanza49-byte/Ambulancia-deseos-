@@ -158,10 +158,12 @@ const Aliados = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:aliados@ambulanciadeseo.org"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfDSL1haTnNUN5xqWf2J4fpgDwD7VRW1_th8xR6cAulcjUArg/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-white text-[#1FA8A1] hover:bg-[#F5F7F7] px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
               >
-                Contáctanos
+                Rellena este Formulario
               </a>
             </div>
           </div>
