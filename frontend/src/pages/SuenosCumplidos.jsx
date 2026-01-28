@@ -7,6 +7,45 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const SuenosCumplidos = () => {
   const [filter, setFilter] = useState('todos');
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
+  const suenosDestacados = [
+    {
+      id: 1,
+      title: 'Un Día Mágico en la Universidad',
+      child: 'María José, 11 años',
+      description: 'María José soñaba con ser doctora algún día. A pesar de su enfermedad, nunca dejó de estudiar y soñar con ayudar a otros. Cumplimos su sueño llevándola a la Universidad Católica, donde conoció a estudiantes de medicina, visitó los laboratorios y compartió su historia de valentía con toda la facultad. Los profesores y estudiantes quedaron inspirados por su determinación. Ese día, María no solo conoció la universidad, sino que se convirtió en un símbolo de esperanza para cientos de jóvenes futuros médicos.',
+      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/wajegf8w_IMG_9556.HEIC',
+      date: 'Noviembre 2024',
+      location: 'Universidad Católica, Quito',
+      category: 'educacion',
+      impact: 'Inspiró a más de 200 estudiantes de medicina'
+    },
+    {
+      id: 2,
+      title: 'El Día que Santiago Tocó las Nubes',
+      child: 'Santiago, 8 años',
+      description: 'Santiago siempre miraba al cielo con fascinación. Su mayor sueño era volar en un avión y sentir cómo es estar entre las nubes. Con el apoyo de Aerolíneas del Ecuador y nuestro equipo médico, hicimos posible este sueño. Santiago no solo voló, sino que conoció la cabina del piloto, aprendió sobre los instrumentos de vuelo y hasta pudo usar el uniforme de piloto. Durante el vuelo de Quito a Guayaquil, su sonrisa iluminó todo el avión. Los pasajeros y la tripulación quedaron conmovidos por su alegría. Hoy, Santiago tiene su certificado de "Copiloto Honorario" en su habitación.',
+      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/6zekwhde_IMG_4180.HEIC',
+      date: 'Octubre 2024',
+      location: 'Aeropuerto Quito',
+      category: 'viajes',
+      impact: 'Primera experiencia de vuelo adaptado con equipo médico completo'
+    },
+    {
+      id: 3,
+      title: 'Una Aventura Familiar Inolvidable',
+      child: 'Carlos y familia, 10 años',
+      description: 'Carlos deseaba pasar un día especial con toda su familia, algo que su tratamiento médico había hecho difícil. Organizamos una aventura completa: comenzó con un desayuno sorpresa en su restaurante favorito, continuó con un día en el parque de diversiones (adaptado con nuestro equipo médico), y terminó con una proyección privada de su película favorita en el cine. Lo más especial fue ver a toda su familia unida, riendo y creando recuerdos hermosos. Sus padres nos dijeron que fue el primer día en meses donde pudieron ser solo una familia feliz, sin pensar en hospitales ni tratamientos.',
+      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/qloakw5m_28c1ecbf-d3d9-49ea-83de-bdda0094669b.jpg',
+      date: 'Septiembre 2024',
+      location: 'Quito',
+      category: 'familia',
+      impact: 'Reunió a 15 miembros de la familia en un día especial'
+    }
+  ];
 
   const suenos = [
     {
