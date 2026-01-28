@@ -1,14 +1,8 @@
 import React from 'react';
 import { Card, CardContent } from '../components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel';
 import { Building2, HandHeart, CheckCircle } from 'lucide-react';
-import Autoplay from 'embla-carousel-autoplay';
 
 const Aliados = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
-  );
-
   const aliados = [
     {
       id: 1,
