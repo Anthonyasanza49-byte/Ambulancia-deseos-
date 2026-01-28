@@ -249,6 +249,15 @@ const SuenosCumplidos = () => {
       {/* Sueños Grid */}
       <section className="py-20 bg-[#F5F7F7]">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#0F5E63] mb-4">
+              Más Sueños Cumplidos
+            </h2>
+            <p className="text-[#7A7A7A]">
+              Descubre todas las historias de esperanza que hemos creado juntos
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredSuenos.map((sueno) => (
               <Card key={sueno.id} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
