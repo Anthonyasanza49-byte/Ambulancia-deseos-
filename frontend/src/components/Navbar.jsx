@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
-import { Menu, X, LogOut } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const { user, logout } = useAuth();
 
   const navItems = [
     { name: 'Inicio', path: '/home' },
@@ -19,11 +16,6 @@ const Navbar = () => {
   ];
 
   const isActive = (path) => location.pathname === path;
-
-  const handleLogout = () => {
-    logout();
-    navigate('/auth');
-  };
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -57,19 +49,6 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            {user && (
-              <span className="text-sm text-[#7A7A7A]">
-                Hola, <span className="font-semibold text-[#0F5E63]">{user.name}</span>
-              </span>
-            )}
-            <Button 
-              onClick={handleLogout}
-              variant="ghost"
-              className="text-[#0F5E63] hover:text-[#1FA8A1] hover:bg-[#F5F7F7] font-semibold"
-            >
-              <LogOut className="w-4 h-4 mr-2" />
-              Cerrar Sesión
-            </Button>
             <Button 
               asChild
               className="bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold rounded-full px-6 transition-all duration-300 hover:scale-105 shadow-md"
@@ -95,11 +74,6 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-[#F5F7F7]">
             <div className="flex flex-col space-y-2">
-              {user && (
-                <div className="px-4 py-2 text-sm text-[#7A7A7A]">
-                  Hola, <span className="font-semibold text-[#0F5E63]">{user.name}</span>
-                </div>
-              )}
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -114,18 +88,7 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 space-y-2">
-                <Button 
-                  onClick={() => {
-                    handleLogout();
-                    setIsOpen(false);
-                  }}
-                  variant="ghost"
-                  className="w-full text-[#0F5E63] hover:text-[#1FA8A1] hover:bg-[#F5F7F7] font-semibold justify-start"
-                >
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Cerrar Sesión
-                </Button>
+              <div className="pt-4">
                 <Button 
                   asChild
                   className="w-full bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold rounded-full"
