@@ -1,29 +1,81 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Auth from './pages/Auth';
 import Home from './pages/Home';
-import Login from './pages/Login';
 import { Toaster } from './components/ui/sonner';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          {/* Placeholder routes */}
-          <Route path="/aliados" element={<ComingSoon page="Aliados" />} />
-          <Route path="/voluntarios" element={<ComingSoon page="Voluntarios" />} />
-          <Route path="/suenos-cumplidos" element={<ComingSoon page="Sueños Cumplidos" />} />
-          <Route path="/donaciones" element={<ComingSoon page="Donaciones" />} />
-        </Routes>
-        <Footer />
-        <Toaster />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            {/* Public route - Auth page */}
+            <Route path="/auth" element={<Auth />} />
+            
+            {/* Redirect root to auth */}
+            <Route path="/" element={<Navigate to="/auth" replace />} />
+            
+            {/* Protected routes */}
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Navbar />
+                  <Home />
+                  <Footer />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/aliados"
+              element={
+                <ProtectedRoute>
+                  <Navbar />
+                  <ComingSoon page="Aliados" />
+                  <Footer />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/voluntarios"
+              element={
+                <ProtectedRoute>
+                  <Navbar />
+                  <ComingSoon page="Voluntarios" />
+                  <Footer />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/suenos-cumplidos"
+              element={
+                <ProtectedRoute>
+                  <Navbar />
+                  <ComingSoon page="Sueños Cumplidos" />
+                  <Footer />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/donaciones"
+              element={
+                <ProtectedRoute>
+                  <Navbar />
+                  <ComingSoon page="Donaciones" />
+                  <Footer />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+          <Toaster />
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

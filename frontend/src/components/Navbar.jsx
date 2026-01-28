@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogOut } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   const navItems = [
-    { name: 'Inicio', path: '/' },
+    { name: 'Inicio', path: '/home' },
     { name: 'Aliados', path: '/aliados' },
     { name: 'Voluntarios', path: '/voluntarios' },
     { name: 'Sueños Cumplidos', path: '/suenos-cumplidos' },
@@ -17,12 +20,17 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  const handleLogout = () => {
+    logout();
+    navigate('/auth');
+  };
+
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/home" className="flex items-center space-x-3 group">
             <img 
               src="https://customer-assets.emergentagent.com/job_deseo-web/artifacts/3xcqgn2q_image.png" 
               alt="Ambulancia Deseo Logo" 
@@ -49,12 +57,18 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            {user && (
+              <span className="text-sm text-[#7A7A7A]">
+                Hola, <span className="font-semibold text-[#0F5E63]">{user.name}</span>
+              </span>
+            )}
             <Button 
-              asChild
+              onClick={handleLogout}
               variant="ghost"
               className="text-[#0F5E63] hover:text-[#1FA8A1] hover:bg-[#F5F7F7] font-semibold"
             >
-              <Link to="/login">Iniciar Sesión</Link>
+              <LogOut className="w-4 h-4 mr-2" />
+              Cerrar Sesión
             </Button>
             <Button 
               asChild
@@ -81,6 +95,11 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-[#F5F7F7]">
             <div className="flex flex-col space-y-2">
+              {user && (
+                <div className="px-4 py-2 text-sm text-[#7A7A7A]">
+                  Hola, <span className="font-semibold text-[#0F5E63]">{user.name}</span>
+                </div>
+              )}
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -97,13 +116,15 @@ const Navbar = () => {
               ))}
               <div className="pt-4 space-y-2">
                 <Button 
-                  asChild
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false);
+                  }}
                   variant="ghost"
-                  className="w-full text-[#0F5E63] hover:text-[#1FA8A1] hover:bg-[#F5F7F7] font-semibold"
+                  className="w-full text-[#0F5E63] hover:text-[#1FA8A1] hover:bg-[#F5F7F7] font-semibold justify-start"
                 >
-                  <Link to="/login" onClick={() => setIsOpen(false)}>
-                    Iniciar Sesión
-                  </Link>
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Cerrar Sesión
                 </Button>
                 <Button 
                   asChild
