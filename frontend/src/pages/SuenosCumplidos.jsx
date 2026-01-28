@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel';
 import { Calendar, MapPin, Heart } from 'lucide-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const SuenosCumplidos = () => {
   const [filter, setFilter] = useState('todos');
