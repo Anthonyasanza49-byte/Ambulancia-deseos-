@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,13 +23,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#1FA8A1] to-[#6FD3C8] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <Heart className="w-6 h-6 text-white" fill="white" />
-            </div>
-            <div>
-              <div className="text-xl font-bold text-[#0F5E63]">Ambulancia</div>
-              <div className="text-sm text-[#1FA8A1] font-semibold">Deseo</div>
-            </div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_deseo-web/artifacts/3xcqgn2q_image.png" 
+              alt="Ambulancia Deseo Logo" 
+              className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}

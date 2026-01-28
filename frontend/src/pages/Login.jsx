@@ -5,7 +5,7 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { Heart, Mail, Lock, User, Phone } from 'lucide-react';
+import { Mail, Lock, User, Phone } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 
 const Login = () => {
@@ -49,14 +49,12 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#F5F7F7] to-[#6FD3C8]/20 flex items-center justify-center py-12 px-4">
       <div className="w-full max-w-md">
         {/* Logo */}
-        <Link to="/" className="flex items-center justify-center space-x-3 mb-8 group">
-          <div className="w-16 h-16 bg-gradient-to-br from-[#1FA8A1] to-[#6FD3C8] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg">
-            <Heart className="w-8 h-8 text-white" fill="white" />
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-[#0F5E63]">Ambulancia</div>
-            <div className="text-sm text-[#1FA8A1] font-semibold">Deseo</div>
-          </div>
+        <Link to="/" className="flex items-center justify-center mb-8 group">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_deseo-web/artifacts/3xcqgn2q_image.png" 
+            alt="Ambulancia Deseo Logo" 
+            className="h-24 w-auto transition-transform duration-300 group-hover:scale-105"
+          />
         </Link>
 
         <Tabs defaultValue="login" className="w-full">

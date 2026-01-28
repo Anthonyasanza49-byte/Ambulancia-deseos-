@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,13 +12,11 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#1FA8A1] to-[#6FD3C8] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                <Heart className="w-6 h-6 text-white" fill="white" />
-              </div>
-              <div>
-                <div className="text-xl font-bold">Ambulancia</div>
-                <div className="text-sm text-[#6FD3C8] font-semibold">Deseo</div>
-              </div>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_deseo-web/artifacts/3xcqgn2q_image.png" 
+                alt="Ambulancia Deseo Logo" 
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
             <p className="text-sm text-white/80">
               Cumplimos sueños que transforman vidas. Hacemos posible que niños con enfermedades graves cumplan sus sueños más profundos.
