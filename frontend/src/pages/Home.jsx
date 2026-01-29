@@ -15,17 +15,24 @@ const Home = () => {
   const dreamsCumplidos = [
     {
       id: 1,
-      title: 'Un Día Mágico en la Universidad',
-      description: 'María José cumplió su sueño de visitar la universidad y compartir su historia',
-      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/65gi84iv_IMG_9556.HEIC',
-      date: 'Noviembre 2024'
+      title: 'Vuelo en Avión',
+      description: 'Santiago cumplió su sueño de volar y conocer la cabina del piloto',
+      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/emmwnbg9_WhatsApp%20Image%202024-11-01%20at%2013.00.33.jpeg',
+      date: 'Octubre 2024'
     },
     {
       id: 2,
-      title: 'Una Aventura Familiar Inolvidable',
-      description: 'Carlos disfrutó de un día especial con toda su familia lleno de alegría',
-      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/7snyyzwt_IMG_4180.HEIC',
-      date: 'Octubre 2024'
+      title: 'Conocer la Universidad',
+      description: 'María visitó la Universidad Católica y compartió su historia',
+      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/zpemo73s_IMG_9556.HEIC',
+      date: 'Septiembre 2024'
+    },
+    {
+      id: 3,
+      title: 'Día Especial',
+      description: 'Un día inolvidable para cumplir sueños',
+      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/m3y6h3yf_IMG_4180.HEIC',
+      date: 'Agosto 2024'
     },
   ];
 
