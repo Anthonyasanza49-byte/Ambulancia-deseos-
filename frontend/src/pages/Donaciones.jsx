@@ -82,50 +82,6 @@ const Donaciones = () => {
         </div>
       </section>
 
-      {/* Donation Options */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0F5E63] mb-4">
-              Elige Tu Forma de Ayudar
-            </h2>
-            <p className="text-lg text-[#7A7A7A] max-w-3xl mx-auto">
-              Cada aporte cuenta y hace la diferencia en la vida de un niño
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {donationOptions.map((option, index) => {
-              const Icon = option.icon;
-              return (
-                <Card key={index} className="border-2 border-[#6FD3C8]/30 hover:border-[#1FA8A1] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#1FA8A1] to-[#6FD3C8] rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    {option.amount !== 'custom' ? (
-                      <div className="text-4xl font-bold text-[#1FA8A1] mb-2">${option.amount}</div>
-                    ) : (
-                      <div className="text-2xl font-bold text-[#1FA8A1] mb-2">Tu Monto</div>
-                    )}
-                    <h3 className="text-xl font-bold text-[#0F5E63] mb-2">{option.title}</h3>
-                    <p className="text-sm text-[#7A7A7A] mb-6">{option.description}</p>
-                    <Button 
-                      asChild
-                      className="w-full bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-                    >
-                      <Link to={`/checkout?amount=${option.amount}`}>
-                        Donar Ahora
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Oso Voluntario Section */}
       <section className="py-20 bg-gradient-to-br from-[#6FD3C8]/10 to-[#1FA8A1]/10">
         <div className="container mx-auto px-4">
@@ -146,17 +102,16 @@ const Donaciones = () => {
                 Adopta un Oso Voluntario
               </h3>
               <p className="text-[#7A7A7A] mb-6">
-                Con una donación de $30 o más, puedes adoptar un Oso Voluntario que será entregado a un niño que cumple su sueño.
+                Con tu donación, puedes adoptar un Oso Voluntario que será entregado a un niño que cumple su sueño.
               </p>
-              <Button 
-                asChild
-                size="lg"
-                className="bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold rounded-full px-8 py-6 transition-all duration-300 hover:scale-105 shadow-lg"
+              <a 
+                href="https://wa.me/593994478414?text=Hola,%20quiero%20adoptar%20un%20Oso%20Voluntario"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold rounded-full px-8 py-4 transition-all duration-300 hover:scale-105 shadow-lg"
               >
-                <Link to="/checkout?amount=30&item=oso">
-                  Adoptar Oso Voluntario
-                </Link>
-              </Button>
+                Adoptar Oso Voluntario
+              </a>
             </div>
           </div>
         </div>
