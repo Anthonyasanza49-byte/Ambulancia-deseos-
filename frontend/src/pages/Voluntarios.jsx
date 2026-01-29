@@ -121,129 +121,18 @@ const Voluntarios = () => {
               <h2 className="text-4xl font-bold text-[#0F5E63] mb-4">
                 Solicitud de Voluntariado
               </h2>
-              <p className="text-lg text-[#7A7A7A]">
-                Completa el formulario y nos pondremos en contacto contigo
-              </p>
             </div>
 
             <Card className="border-none shadow-xl">
-              <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="nombre" className="text-[#2E2E2E] font-medium">
-                        Nombre Completo *
-                      </Label>
-                      <Input
-                        id="nombre"
-                        type="text"
-                        placeholder="Juan Pérez"
-                        className="border-[#7A7A7A]/30 focus:border-[#1FA8A1] focus:ring-[#1FA8A1]"
-                        value={formData.nombre}
-                        onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-[#2E2E2E] font-medium">
-                        Correo Electrónico *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="tu@email.com"
-                        className="border-[#7A7A7A]/30 focus:border-[#1FA8A1] focus:ring-[#1FA8A1]"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="telefono" className="text-[#2E2E2E] font-medium">
-                        Teléfono *
-                      </Label>
-                      <Input
-                        id="telefono"
-                        type="tel"
-                        placeholder="+593 123 456 789"
-                        className="border-[#7A7A7A]/30 focus:border-[#1FA8A1] focus:ring-[#1FA8A1]"
-                        value={formData.telefono}
-                        onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="ciudad" className="text-[#2E2E2E] font-medium">
-                        Ciudad *
-                      </Label>
-                      <Input
-                        id="ciudad"
-                        type="text"
-                        placeholder="Quito"
-                        className="border-[#7A7A7A]/30 focus:border-[#1FA8A1] focus:ring-[#1FA8A1]"
-                        value={formData.ciudad}
-                        onChange={(e) => setFormData({ ...formData, ciudad: e.target.value })}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="disponibilidad" className="text-[#2E2E2E] font-medium">
-                      Disponibilidad *
-                    </Label>
-                    <Select value={formData.disponibilidad} onValueChange={(value) => setFormData({ ...formData, disponibilidad: value })}>
-                      <SelectTrigger className="border-[#7A7A7A]/30 focus:border-[#1FA8A1] focus:ring-[#1FA8A1]">
-                        <SelectValue placeholder="Selecciona tu disponibilidad" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="tiempo-completo">Tiempo Completo</SelectItem>
-                        <SelectItem value="medio-tiempo">Medio Tiempo</SelectItem>
-                        <SelectItem value="fines-semana">Fines de Semana</SelectItem>
-                        <SelectItem value="ocasional">Ocasional</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="experiencia" className="text-[#2E2E2E] font-medium">
-                      Experiencia Previa (opcional)
-                    </Label>
-                    <Textarea
-                      id="experiencia"
-                      placeholder="Cuéntanos sobre tu experiencia en voluntariado o trabajo con niños..."
-                      className="border-[#7A7A7A]/30 focus:border-[#1FA8A1] focus:ring-[#1FA8A1] min-h-[100px]"
-                      value={formData.experiencia}
-                      onChange={(e) => setFormData({ ...formData, experiencia: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="motivacion" className="text-[#2E2E2E] font-medium">
-                      ¿Por qué quieres ser voluntario? *
-                    </Label>
-                    <Textarea
-                      id="motivacion"
-                      placeholder="Comparte tu motivación para unirte a Ambulancia Deseo..."
-                      className="border-[#7A7A7A]/30 focus:border-[#1FA8A1] focus:ring-[#1FA8A1] min-h-[120px]"
-                      value={formData.motivacion}
-                      onChange={(e) => setFormData({ ...formData, motivacion: e.target.value })}
-                      required
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold py-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    Enviar Solicitud
-                  </Button>
-                </form>
+              <CardContent className="p-8 text-center">
+                <a
+                  href="https://wa.me/593994478414?text=Hola,%20quiero%20ser%20voluntario%20de%20Ambulancia%20Deseo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold py-6 px-12 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg text-lg"
+                >
+                  Enviar Solicitud
+                </a>
               </CardContent>
             </Card>
           </div>
