@@ -126,7 +126,7 @@ const Voluntarios = () => {
             <Card className="border-none shadow-xl">
               <CardContent className="p-8 text-center">
                 <a
-                  href="https://wa.me/593994478414?text=Hola,%20quiero%20ser%20voluntario%20de%20Ambulancia%20Deseo"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSecLpbMTbN5IoIylXCepyJUATDyl7IXbU5hjRqrHu0wGJkfWA/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-[#1FA8A1] hover:bg-[#17A2A4] text-white font-semibold py-6 px-12 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg text-lg"
