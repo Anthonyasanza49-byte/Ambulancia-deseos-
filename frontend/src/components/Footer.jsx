@@ -68,11 +68,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#6FD3C8] flex-shrink-0" />
-                <span className="text-sm text-white/80">+593 2 123 4567</span>
+                <span className="text-sm text-white/80">+593 99 447 8414</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#6FD3C8] flex-shrink-0" />
-                <span className="text-sm text-white/80">info@ambulanciadeseo.org</span>
+                <span className="text-sm text-white/80">ambulanciadeseoecuador@gmail.com</span>
               </li>
             </ul>
           </div>
