@@ -120,9 +120,10 @@
                 ),
                 array(
                     'image' => 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/zpemo73s_IMG_9556.HEIC',
-                    'badge' => 'Septiembre 2024',
-                    'title' => 'Conocer la Universidad',
-                    'description' => 'María visitó la Universidad Católica y compartió su historia'
+                    'badge' => 'Agosto 2025 ',
+                    'title' => 'Conocí a mi idolo ',
+                    'description' => 'Adriana :” Mi sueño es conocer al artista Paulo Londra, poder conversar con él, poder abrazarlo y
+asistir a su concierto. “'
                 ),
                 array(
                     'image' => 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/m3y6h3yf_IMG_4180.HEIC',
