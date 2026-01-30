@@ -17,22 +17,22 @@ const Home = () => {
       id: 1,
       title: 'Vuelo en Avión',
       description: 'Santiago cumplió su sueño de volar y conocer la cabina del piloto',
-      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/emmwnbg9_WhatsApp%20Image%202024-11-01%20at%2013.00.33.jpeg',
+      image: '/img/vueloenavion.png',
       date: 'Octubre 2024'
     },
     {
       id: 2,
-      title: 'Conocer la Universidad',
-      description: 'María visitó la Universidad Católica y compartió su historia',
-      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/zpemo73s_IMG_9556.HEIC',
-      date: 'Septiembre 2024'
+      title: 'Conocí a mi Idolo ',
+      description: 'Adriana :” Mi sueño es conocer al artista Paulo Londra, poder conversar con él, poder abrazarlo y asistir a su concierto. “',
+      image: '/img/paulolondra.png',  //
+      date: 'Agosto 2025'
     },
     {
       id: 3,
-      title: 'Día Especial',
-      description: 'Un día inolvidable para cumplir sueños',
-      image: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/m3y6h3yf_IMG_4180.HEIC',
-      date: 'Agosto 2024'
+      title: 'Almorzar con mis referentes',
+      description: 'Mi sueño es conocer a Dayanara Peralta y a Jonathan Estrada y almorzar con ellos ya que siempre he deseado conocerlos.',
+      image: '/img/estrada.png',  //
+      date: 'Febrero 2022'
     },
   ];
 

@@ -9,43 +9,37 @@ const Aliados = () => {
       name: 'Ministerio de Salud Pública',
       category: 'Salud',
       description: 'Apoyo médico y logístico para el traslado de pacientes',
-      logo: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/v6mb7g6y_1630664618187.jpg',
+      logo: '/img/Saludpu.png',
     },
     {
       id: 2,
       name: 'Universidad de Especialidades Espíritu Santo',
       category: 'Educación',
       description: 'Apoyo académico y voluntariado estudiantil',
-      logo: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/13bnb8sg_logo-gabo-01.jpg',
+      logo: '/img/Uees.png',
     },
     {
       id: 3,
       name: 'Banco de Alimentos Diakonia',
       category: 'Alimentación',
       description: 'Apoyo nutricional y alimentario para las familias',
-      logo: 'https://customer-assets.emergentagent.com/job_deseo-web/artifacts/jhjhyhtn_images.png',
+      logo: '/img/Bancode.png',
     },
     {
       id: 4,
-      name: 'Universidad Católica',
+      name: 'Universidad Espol',
       category: 'Educación',
       description: 'Apoyo académico y voluntariado estudiantil',
-      logo: 'https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop',
+      logo: '/img/Espol.png',
     },
     {
       id: 5,
-      name: 'Corporación de Seguros',
-      category: 'Seguros',
-      description: 'Cobertura y protección para traslados especiales',
-      logo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
+      name: 'Junta de beneficiencia de Guayaquil',
+      category: 'Cobertura',
+      description: ' brindar asistencia social, salud, educación y servicios funerarios a personas de escasos recursos en Ecuador.',
+      logo: '/img/Juntade.png',
     },
-    {
-      id: 6,
-      name: 'Cadena Hotelera',
-      category: 'Hospedaje',
-      description: 'Alojamiento gratuito para familias durante los sueños',
-      logo: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop',
-    },
+   
   ];
 
   const beneficios = [
