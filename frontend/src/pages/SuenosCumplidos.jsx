@@ -1,13 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel';
 import { Calendar, MapPin, Heart } from 'lucide-react';
 import Autoplay from 'embla-carousel-autoplay';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const HoverCard = ({ children, className = '' }) => (
+  <motion.div
+    className={className}
+    whileHover={{ y: -8 }}
+    transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+  >
+    {children}
+  </motion.div>
+);
+
+const TiltCard = ({ children, className = '' }) => (
+  <motion.div
+    className={className}
+    whileHover={{ y: -5, scale: 1.01 }}
+    transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+  >
+    {children}
+  </motion.div>
+);
+
+const FloatingParticles = () => {
+  const particles = Array.from({ length: 24 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 6 + 2,
+    x: Math.random() * 100,
+    delay: Math.random() * 4,
+    duration: Math.random() * 12 + 10,
+    opacity: Math.random() * 0.5 + 0.2,
+  }));
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full"
+          style={{
+            width: p.size,
+            height: p.size,
+            left: `${p.x}%`,
+            background: `radial-gradient(circle, rgba(111, 211, 200, ${p.opacity}) 0%, transparent 70%)`,
+            boxShadow: `0 0 ${p.size * 2}px rgba(111, 211, 200, ${p.opacity * 0.5})`,
+          }}
+          initial={{ y: '110%', opacity: 0 }}
+          animate={{ y: '-10%', opacity: [0, p.opacity, p.opacity, 0], x: [0, Math.sin(p.id) * 40, 0] }}
+          transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'linear' }}
+        />
+      ))}
+    </div>
+  );
+};
 
 const SuenosCumplidos = () => {
   const [filter, setFilter] = useState('todos');
-  const plugin = React.useRef(
+  const plugin = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
 
@@ -125,15 +193,31 @@ const SuenosCumplidos = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#0F5E63] to-[#1FA8A1] py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      <section className="relative bg-gradient-to-r from-[#0F5E63] to-[#1FA8A1] py-20 text-white overflow-hidden">
+        <FloatingParticles />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
             Sueños Cumplidos
-          </h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl max-w-3xl mx-auto opacity-90"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
+          >
             Cada sueño cumplido es una historia de esperanza, valentía y amor que transforma vidas
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-4">
+          </motion.p>
+          <motion.div
+            className="mt-8 flex items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
             <div className="text-center">
               <div className="text-4xl font-bold">500+</div>
               <div className="text-sm opacity-90">Sueños Cumplidos</div>
@@ -143,13 +227,19 @@ const SuenosCumplidos = () => {
               <div className="text-4xl font-bold">15</div>
               <div className="text-sm opacity-90">Años Cambiando Vidas</div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Filter Section */}
       <section className="py-8 bg-[#F5F7F7] sticky top-20 z-40">
-        <div className="container mx-auto px-4">
+        <motion.div
+          className="container mx-auto px-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
+        >
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <button
@@ -165,20 +255,26 @@ const SuenosCumplidos = () => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Carrusel de Sueños Destacados */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-4xl font-bold text-[#0F5E63] mb-4">
               Historias que Nos Inspiran
             </h2>
             <p className="text-lg text-[#7A7A7A] max-w-3xl mx-auto">
               Cada sueño cumplido es una historia única de esperanza, valentía y amor incondicional
             </p>
-          </div>
+          </motion.div>
 
           <div className="max-w-7xl mx-auto">
             <Carousel
@@ -191,6 +287,13 @@ const SuenosCumplidos = () => {
                 {suenosDestacados.map((sueno) => (
                   <CarouselItem key={sueno.id}>
                     <div className="p-4">
+                      <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={scaleIn}
+                      >
+                      <TiltCard>
                       <Card className="overflow-hidden border-none shadow-2xl">
                         <div className="grid md:grid-cols-2 gap-0">
                           {/* Image Side */}
@@ -235,6 +338,8 @@ const SuenosCumplidos = () => {
                           </CardContent>
                         </div>
                       </Card>
+                      </TiltCard>
+                      </motion.div>
                     </div>
                   </CarouselItem>
                 ))}
@@ -249,18 +354,32 @@ const SuenosCumplidos = () => {
       {/* Sueños Grid */}
       <section className="py-20 bg-[#F5F7F7]">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-3xl font-bold text-[#0F5E63] mb-4">
               Más Sueños Cumplidos
             </h2>
             <p className="text-[#7A7A7A]">
               Descubre todas las historias de esperanza que hemos creado juntos
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
             {filteredSuenos.map((sueno) => (
-              <Card key={sueno.id} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <motion.div key={sueno.id} variants={scaleIn}>
+              <HoverCard>
+              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div className="h-64 overflow-hidden relative group">
                   <img
                     src={sueno.image}
@@ -288,8 +407,10 @@ const SuenosCumplidos = () => {
                   </div>
                 </CardContent>
               </Card>
+              </HoverCard>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

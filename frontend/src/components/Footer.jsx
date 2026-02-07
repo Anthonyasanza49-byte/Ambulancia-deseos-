@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-[#0F5E63] text-white">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-3 group">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_deseo-web/artifacts/3xcqgn2q_image.png" 
-                alt="Ambulancia Deseo Logo" 
+              <img
+                src="https://customer-assets.emergentagent.com/job_deseo-web/artifacts/3xcqgn2q_image.png"
+                alt="Ambulancia Deseo Logo"
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
@@ -62,17 +62,31 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#6FD3C8] flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-white/80">
-                  Calle Principal #123<br />
-                  Quito, Ecuador
+                  La Atarazana #123<br />
+                  Guayaquil, Ecuador
                 </span>
               </li>
+
+              {/* Teléfono clicable */}
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#6FD3C8] flex-shrink-0" />
-                <span className="text-sm text-white/80">+593 99 447 8414</span>
+                <a
+                  href="tel:+593994478414"
+                  className="text-sm text-white/80 hover:text-[#6FD3C8] transition-colors"
+                >
+                  +593 99 447 8414
+                </a>
               </li>
+
+              {/* Email clicable */}
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#6FD3C8] flex-shrink-0" />
-                <span className="text-sm text-white/80">ambulanciadeseoecuador@gmail.com</span>
+                <a
+                  href="mailto:ambulanciadeseoecuador@gmail.com"
+                  className="text-sm text-white/80 hover:text-[#6FD3C8] transition-colors break-all"
+                >
+                  ambulanciadeseoecuador@gmail.com
+                </a>
               </li>
             </ul>
           </div>
@@ -80,30 +94,46 @@ const Footer = () => {
           {/* Social Media */}
           <div>
             <h3 className="text-lg font-bold mb-4">Síguenos</h3>
+
             <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#6FD3C8] transition-all duration-300 hover:scale-110"
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/FundacionAmbulanciaDeseo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#6FD3C8] transition-all duration-300 hover:scale-110
+                           focus:outline-none focus:ring-2 focus:ring-[#6FD3C8]"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#6FD3C8] transition-all duration-300 hover:scale-110"
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/ambulanciadeseo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#6FD3C8] transition-all duration-300 hover:scale-110
+                           focus:outline-none focus:ring-2 focus:ring-[#6FD3C8]"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#6FD3C8] transition-all duration-300 hover:scale-110"
-                aria-label="Twitter"
+
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/593994478414"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 bg-[#25D366]/90 rounded-full flex items-center justify-center hover:bg-[#25D366] transition-all duration-300 hover:scale-110
+                           focus:outline-none focus:ring-2 focus:ring-[#25D366]"
+                aria-label="WhatsApp"
               >
-                <Twitter className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5 text-white" />
               </a>
             </div>
-            <p className="text-sm text-white/80 mt-4">
+
+            <p className="text-sm text-white/80 mt-2">
               Únete a nuestra comunidad y sé parte del cambio.
             </p>
           </div>
